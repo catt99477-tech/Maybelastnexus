@@ -1,4 +1,5 @@
 import NinjaGame from './NinjaGame.jsx';  
+import BlockObby from './Blockobby.jsx';
 import { useState, useEffect } from 'preact/hooks';
 
 
@@ -14,6 +15,17 @@ const games = [
     color: 'linear-gradient(135deg,#17604e,#25204e)',
     search: 'Ninja Simulator',
     original: true,
+  },
+  {
+    id: 'block-obby',
+    name: 'Block Obby',
+    category: 'Obby',
+    icon: '🏃',
+    players: 'Single-player',
+    description: 'Jump, dodge hazards and   conquer obstacle courses.',
+    details: 'Test your platforming skills in a 3D obstacle course. Reach checkpoints, avoid lava and make it to the finish.',
+    color: 'linear-gradient(135deg,#17604e,#245b91)',
+    search: 'Block Obby',
   },
   {
     id: 1,
@@ -108,6 +120,7 @@ const initialFavorites = () => {
 
 export default function App() {
   const [showNinjaGame, setShowNinjaGame] = useState(false);
+  const [showBlockObby, setShowBlockObby] = useState(false);
   const [page, setPage] = useState('Discover');
   const [selectedGame, setSelectedGame] = useState(null);
   const [favorites, setFavorites] = useState(initialFavorites);
@@ -529,15 +542,19 @@ export default function App() {
       </header>
 
       <main class="nexus-content">
-      {showNinjaGame ? (
+    {showNinjaGame ? (
   <section class="nexus-detail">
-    <button
-      class="nexus-back"
-      onClick={() => setShowNinjaGame(false)}
-    >
+    <button class="nexus-back" onClick={() => setShowNinjaGame(false)}>
       ← Back to NEXUS
     </button>
     <NinjaGame />
+  </section>
+) : showBlockObby ? (
+  <section class="nexus-detail">
+    <button class="nexus-back" onClick={() => setShowBlockObby(false)}>
+      ← Back to NEXUS
+    </button>
+    <BlockObby />
   </section>
 ) : selectedGame ? (
           <section class="nexus-detail">
