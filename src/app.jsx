@@ -1,7 +1,6 @@
-import NinjaGame from './NinjaGame.jsx';  
+import NinjaGame from './NinjaGame.jsx';
 import BlockObby from './Blockobby.jsx';
 import { useState, useEffect } from 'preact/hooks';
-
 
 const games = [
   {
@@ -22,7 +21,7 @@ const games = [
     category: 'Obby',
     icon: '🏃',
     players: 'Single-player',
-    description: 'Jump, dodge hazards and   conquer obstacle courses.',
+    description: 'Jump, dodge hazards and conquer obstacle courses.',
     details: 'Test your platforming skills in a 3D obstacle course. Reach checkpoints, avoid lava and make it to the finish.',
     color: 'linear-gradient(135deg,#17604e,#245b91)',
     search: 'Block Obby',
@@ -34,8 +33,7 @@ const games = [
     icon: '🏡',
     players: '500K+',
     description: 'Build your own life and explore the city.',
-    details:
-      'Create your own story in Brookhaven. Explore houses, drive vehicles, meet other players, and experience an open-ended roleplay world.',
+    details: 'Create your own story in Brookhaven. Explore houses, drive vehicles, meet other players, and experience an open-ended roleplay world.',
     color: 'linear-gradient(135deg,#33265c,#263b50)',
     search: 'Brookhaven RP',
   },
@@ -46,8 +44,7 @@ const games = [
     icon: '🐶',
     players: '300K+',
     description: 'Adopt pets, decorate homes and explore.',
-    details:
-      'Discover a world full of pets, homes, and adventures. Collect pets, trade with other players, and create your own home.',
+    details: 'Discover a world full of pets, homes, and adventures. Collect pets, trade with other players, and create your own home.',
     color: 'linear-gradient(135deg,#49316c,#314b70)',
     search: 'Adopt Me',
   },
@@ -58,8 +55,7 @@ const games = [
     icon: '🧗',
     players: '80K+',
     description: 'Challenge yourself through difficult towers.',
-    details:
-      'Test your platforming skills in a challenging obstacle course. Climb the tower, overcome difficult jumps, and race against the clock.',
+    details: 'Test your platforming skills in a challenging obstacle course. Climb the tower, overcome difficult jumps, and race against the clock.',
     color: 'linear-gradient(135deg,#45316c,#273b5a)',
     search: 'Tower of Hell',
   },
@@ -70,8 +66,7 @@ const games = [
     icon: '⚔️',
     players: '100K+',
     description: 'Fight teams and protect your bed.',
-    details:
-      'Team up with other players, gather resources, protect your base, and compete against other teams.',
+    details: 'Team up with other players, gather resources, protect your base, and compete against other teams.',
     color: 'linear-gradient(135deg,#283e62,#49316c)',
     search: 'BedWars',
   },
@@ -82,8 +77,7 @@ const games = [
     icon: '🔎',
     players: '90K+',
     description: "Find the murderer before it's too late.",
-    details:
-      "Enter a mystery round where players have different roles. Figure out what's happening and survive until the end.",
+    details: "Enter a mystery round where players have different roles. Figure out what's happening and survive until the end.",
     color: 'linear-gradient(135deg,#45305d,#243a50)',
     search: 'Murder Mystery 2',
   },
@@ -94,8 +88,7 @@ const games = [
     icon: '🍎',
     players: '200K+',
     description: 'Explore islands and discover abilities.',
-    details:
-      'Explore a huge adventure world, discover abilities, travel between islands, and develop your character.',
+    details: 'Explore a huge adventure world, discover abilities, travel between islands, and develop your character.',
     color: 'linear-gradient(135deg,#354c65,#49316c)',
     search: 'Blox Fruits',
   },
@@ -542,26 +535,26 @@ export default function App() {
       </header>
 
       <main class="nexus-content">
-    {showNinjaGame ? (
-  <section class="nexus-detail">
-    <button class="nexus-back" onClick={() => setShowNinjaGame(false)}>
-      ← Back to NEXUS
-    </button>
-    <NinjaGame />
-  </section>
-) : showBlockObby ? (
-  <section class="nexus-detail">
-    <button class="nexus-back" onClick={() => setShowBlockObby(false)}>
-      ← Back to NEXUS
-    </button>
-    <BlockObby />
-  </section>
-) : selectedGame ? (
+        {showNinjaGame ? (
+          <section class="nexus-detail">
+            <button class="nexus-back" onClick={() => setShowNinjaGame(false)}>
+              ← Back to NEXUS
+            </button>
+            <NinjaGame />
+          </section>
+        ) : showBlockObby ? (
+          <section class="nexus-detail">
+            <button class="nexus-back" onClick={() => setShowBlockObby(false)}>
+              ← Back to NEXUS
+            </button>
+            <BlockObby />
+          </section>
+        ) : selectedGame ? (
           <section class="nexus-detail">
             <button class="nexus-back" onClick={goBack}>
               ← Back to {page}
             </button>
-            
+
             <div
               class="nexus-detail-art"
               style={{ background: selectedGame.color }}
@@ -588,28 +581,28 @@ export default function App() {
                 <div>Platform</div>
               </div>
             </div>
+
             <button
-  class="nexus-play"
-  onClick={() => {
-    if (selectedGame.name === "Ninja Simulator") {
-      setShowNinjaGame(true);
-    } else {
-      window.open(
-        'https://www.roblox.com/discover/?Keyword=' +
-          encodeURIComponent(selectedGame.search),
-        '_blank'
-      );
-    }
-  }}
->
-  ▶ Play
-</button>
- 
+              class="nexus-play"
+              onClick={() => {
+                if (selectedGame.name === "Ninja Simulator") {
+                  setShowNinjaGame(true);
+                } else {
+                  window.open(
+                    'https://www.roblox.com/discover/?Keyword=' +
+                      encodeURIComponent(selectedGame.search),
+                    '_blank'
+                  );
+                }
+              }}
+            >
+              ▶ Play
+            </button>
 
             <button
               class="nexus-detail-favorite"
-              onClick={() => toggleFavorite(selectGame.id)}
-              >
+              onClick={() => toggleFavorite(selectedGame.id)}
+            >
               {favorites.includes(selectedGame.id)
                 ? '♥ Remove from Favorites'
                 : '♡ Add to Favorites'}
